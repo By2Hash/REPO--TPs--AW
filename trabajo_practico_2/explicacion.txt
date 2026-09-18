@@ -7,7 +7,7 @@ Navegación Principal (Header):
 Colocación del isotipo/logo de la marca.
 Menú de navegación directo hacia las secciones clave del catálogo y acciones rápidas
 Sección Héroe / Banner Principal:
-Implementación de una imagen destacada a ancho completo (100%) para la campaña de temporada ("NUEVA COLECCIÓN: OTOÑO/INVIERNO").
+Implementación de una imagen  para la campaña de temporada ("NUEVA COLECCIÓN: OTOÑO/INVIERNO").
 Llamado a la acción (CTA) directo mediante un botón/enlace a catalogo.html para incentivar la conversión inmediata.
 Sección de Productos Destacados:
 Estructuración de una grilla inicial con los productos más relevantes o vendidos (ej. Chaqueta de Mezclilla, Sutter Tájilo, Vaqueros Slim-Fit).
