@@ -1,0 +1,40 @@
+Resumen de Desarrollo pagina web Tienda de Ropa Elite
+Se realizó la maquetación en HTML5 de dos vistas fundamentales para la tienda de ropa ficticia Élite: la página de catálogo/categoría (catalogo.html) y la vista de detalle de producto (producto.html).	 El desarrollo se ejecutó tomando como referencia los prototipos visuales provistos y manteniendo la coherencia de navegación planteada en la página principal (index.html).
+Detalle de Cambios e Implementación
+A. Vista Principal (index.html)
+Se revisó y formalizó la estructura de la página de inicio (Landing Page) para garantizar una puerta de entrada clara y atractiva al sitio:
+Navegación Principal (Header):
+Colocación del isotipo/logo de la marca.
+Menú de navegación directo hacia las secciones clave del catálogo y acciones rápidas
+Sección Héroe / Banner Principal:
+Implementación de una imagen destacada a ancho completo (100%) para la campaña de temporada ("NUEVA COLECCIÓN: OTOÑO/INVIERNO").
+Llamado a la acción (CTA) directo mediante un botón/enlace a catalogo.html para incentivar la conversión inmediata.
+Sección de Productos Destacados:
+Estructuración de una grilla inicial con los productos más relevantes o vendidos (ej. Chaqueta de Mezclilla, Sutter Tájilo, Vaqueros Slim-Fit).
+Cada tarjeta de producto incluye su imagen representativa, nombre, precio y un enlace directo para ver más detalles en el catálogo.
+Pie de Página (Footer):
+Cierre institucional con la reserva de derechos de autor de la marca.
+
+B. Vista de Catálogo (catalogo.html)
+Se implementó la estructura correspondiente a la sección de categorías para permitir la navegación y filtrado de prendas:
+Navegación Superior (Header): Integración del logo de la marca, enlaces principales de categoría (Hombre, Mujer, Ofertas)
+Miga de Pan (Breadcrumbs): Inclusión de una ruta de navegación (INICIO > MUJER > CHAQUETAS) para mejorar la experiencia de usuario y ubicación dentro del sitio.
+Barra de Filtros y Ordenamiento:
+Desplegables (<select>) para ordenar prendas por Relevancia y Precio.
+Opciones de filtrado con casillas de verificación (<input type="checkbox">) para Talla, Color y Precio.
+Cuadrícula de Productos (Grid):
+Estructuración mediante etiquetas semánticas <article>.
+Etiquetas de título de producto (<h3>), precios destacados (<strong>) y botones de acción ("Añadir al Carrito").
+C. Vista de Detalle de Producto (producto.html)
+Se desarrolló la maqueta para la ficha técnica e interactiva de un producto individual (ejemplo: Remera Oversize 'ELEVATE'):
+Galería Visual de Producto:
+Espacio designado para la imagen principal de alta resolución.
+Módulo para miniaturas secundarias (thumbnails) con vistas en diferentes ángulos.
+Información y Selección de Opciones:
+Encabezados con nombre, variante de color y precio del producto.
+Sección de descripción detallada del artículo.
+Selector interactivo de Talles (S, M, L, XL) junto con un enlace a la guía de talles.
+Control numérico para la Cantidad deseada con botones de incremento/decremento (+ / -).
+Botón principal destacado "AGREGAR AL CARRITO".
+Módulo de Productos Recomendados:
+Sección en la parte inferior del sitio destinada a sugerir artículos complementarios (ej. pantalones, cinturones) para incentivar la venta cruzada.
