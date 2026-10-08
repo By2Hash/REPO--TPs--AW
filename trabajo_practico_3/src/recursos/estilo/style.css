@@ -1,0 +1,567 @@
+/* ==========================================================================
+   ÉLITE - HOJA DE ESTILOS
+   --------------------------------------------------------------------------
+   NOMENCLATURA
+   - Clases en español, en minúscula y con guion bajo (snake_case).
+   - El nombre dice QUÉ es el bloque, no cómo se ve:
+       encabezado_principal, menu, contenido_principal, pie_pagina
+       seccion_*  -> secciones de cada página
+       tarjeta_producto -> componente reutilizable (producto)
+   - Jerarquía: bloque > elemento. Se usa el selector hijo (>) o descendiente
+     de un solo nivel, por ejemplo ".galeria_producto > img".
+
+   ORDEN DEL ARCHIVO
+   1. Variables        4. Componentes (tarjeta, botones, formulario)
+   2. Base / reset     5. Páginas (index, catálogos, producto)
+   3. Estructura       6. Responsividad (media queries, mobile first)
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap");
+
+
+/* ==========================================================================
+   1. VARIABLES
+   ========================================================================== */
+:root {
+    --color_fondo: #f6f7f5;
+    --color_superficie: #ffffff;
+    --color_texto: #18221b;
+    --color_texto_suave: #5f6b63;
+    --color_principal: #2e5d34;
+    --color_principal_oscuro: #1f4025;
+    --color_realce: #e4ebe4;
+    --color_borde: #d6ddd7;
+
+    --fuente_base: "Jost", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+
+    --radio: 4px;
+    --ancho_maximo: 1120px;
+}
+
+
+/* ==========================================================================
+   2. BASE / RESET
+   ========================================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fuente_base);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color_texto);
+    background: var(--color_fondo);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    background: var(--color_realce);
+}
+
+h1, h2, h3 {
+    margin: 0 0 0.5rem;
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+a {
+    color: inherit;
+    text-underline-offset: 0.2em;
+}
+
+:focus-visible {
+    outline: 2px solid var(--color_principal);
+    outline-offset: 2px;
+}
+
+
+/* ==========================================================================
+   3. ESTRUCTURA GENERAL
+   ========================================================================== */
+
+/* --- Encabezado y menú: logo centrado arriba, enlaces centrados debajo --- */
+.encabezado_principal {
+    background: var(--color_superficie);
+}
+
+.encabezado_principal hr {
+    margin: 0;
+    border: 0;
+    height: 1px;
+    background: var(--color_borde);
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem 1.5rem;
+    padding: 1rem 1rem 0.75rem;
+}
+
+.menu a {
+    padding: 0.4rem 0;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.menu a:hover,
+.menu a[aria-current="page"] {
+    border-bottom-color: var(--color_principal);
+}
+
+/* El primer enlace es el logo: ocupa toda la fila y queda centrado */
+.menu a:first-child {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 0 0.5rem;
+    border-bottom: 0;
+}
+
+.menu a:first-child:hover {
+    border-bottom: 0;
+}
+
+.menu a:first-child img {
+    width: auto;
+    height: 56px;
+    background: none;
+}
+
+/* --- Contenido principal --- */
+.contenido_principal {
+    flex: 1;
+    width: min(var(--ancho_maximo), 100% - 2rem);
+    margin-inline: auto;
+    padding-block: 1.5rem 3rem;
+}
+
+/* Los <br> y <hr> del HTML se reemplazan por márgenes */
+.contenido_principal br,
+.contenido_principal hr,
+body > hr {
+    display: none;
+}
+
+/* Miga de pan */
+.contenido_principal > p > small {
+    font-size: 0.9rem;
+    color: var(--color_texto_suave);
+}
+
+/* Título de las páginas de catálogo */
+.contenido_principal > h1 {
+    margin: 0.25rem 0 1.5rem;
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    letter-spacing: 0.02em;
+}
+
+/* --- Pie de página --- */
+.pie_pagina {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #e8efe9;
+    background: var(--color_principal_oscuro);
+}
+
+.pie_pagina p {
+    margin: 0;
+}
+
+
+/* ==========================================================================
+   4. COMPONENTES
+   ========================================================================== */
+
+/* --- Grillas de productos (index, catálogos y ficha de producto) --- */
+.seccion_productos,
+.seccion_hombre,
+.seccion_mujer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem 1.5rem;
+}
+
+.seccion_productos > h2,
+.seccion_recomendados > h2 {
+    grid-column: 1 / -1;
+    margin: 0 0 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 1.4rem;
+    border-bottom: 1px solid var(--color_borde);
+}
+
+/* --- Tarjeta de producto --- */
+.tarjeta_producto {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.tarjeta_producto > img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: var(--radio);
+    margin-bottom: 0.5rem;
+}
+
+.tarjeta_producto > h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.tarjeta_producto > p {
+    margin: 0;
+    color: var(--color_texto_suave);
+}
+
+/* El penúltimo elemento es el precio: se destaca y separa del botón */
+.tarjeta_producto > p:nth-last-child(2) {
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: var(--color_texto);
+}
+
+/* --- Botones --- */
+button {
+    font: inherit;
+    color: var(--color_texto);
+    background: var(--color_superficie);
+    border: 1px solid var(--color_borde);
+    border-radius: var(--radio);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+button:hover {
+    color: var(--color_principal);
+    border-color: var(--color_principal);
+}
+
+/* Botón / enlace al pie de la tarjeta (siempre alineado abajo) */
+.tarjeta_producto > button,
+.tarjeta_producto > a {
+    display: block;
+    margin-top: auto;
+    padding: 0.6rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--color_principal);
+    background: transparent;
+    border: 1px solid var(--color_principal);
+    border-radius: var(--radio);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.tarjeta_producto > button:hover,
+.tarjeta_producto > a:hover {
+    color: #ffffff;
+    background: var(--color_principal);
+}
+
+/* --- Formulario de filtros --- */
+.formulario {
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+    border-block: 1px solid var(--color_borde);
+}
+
+.formulario form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+}
+
+.formulario label,
+.formulario span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 500;
+}
+
+.formulario select {
+    min-width: 8rem;
+    padding: 0.4rem 0.6rem;
+    font: inherit;
+    color: inherit;
+    background: var(--color_superficie);
+    border: 1px solid var(--color_borde);
+    border-radius: var(--radio);
+}
+
+.formulario input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+    accent-color: var(--color_principal);
+}
+
+
+/* ==========================================================================
+   5. PÁGINAS
+   ========================================================================== */
+
+/* --- index.html: portada --- */
+.seccion_coleccion {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.seccion_coleccion > img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: var(--radio);
+    margin-bottom: 1.5rem;
+}
+
+.seccion_coleccion h1 {
+    font-size: clamp(1.8rem, 6vw, 3rem);
+    line-height: 1.1;
+}
+
+.seccion_coleccion p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--color_texto_suave);
+}
+
+.seccion_coleccion > a {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: #ffffff;
+    background: var(--color_principal);
+    border-radius: var(--radio);
+    transition: background-color 0.2s;
+}
+
+.seccion_coleccion > a:hover {
+    background: var(--color_principal_oscuro);
+}
+
+/* --- producto.html: ficha del producto --- */
+.tarjeta_producto:has(.galeria_producto) {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.tarjeta_producto:has(.galeria_producto) > * {
+    margin: 0;
+}
+
+.galeria_producto > img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: var(--radio);
+}
+
+.galeria_producto > div {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.galeria_producto > div img {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border: 1px solid var(--color_borde);
+    border-radius: var(--radio);
+}
+
+.detalles_producto h1 {
+    margin-bottom: 0.25rem;
+    font-size: clamp(1.6rem, 4vw, 2.25rem);
+}
+
+.detalles_producto h2 {
+    margin: 0.75rem 0 1.5rem;
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+.detalles_producto h3 {
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.detalles_producto p {
+    margin: 0 0 1.25rem;
+    color: var(--color_texto_suave);
+}
+
+.talles {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.talles p {
+    flex: 0 0 100%;
+    margin: 0 0 0.25rem;
+    color: var(--color_texto);
+}
+
+.talles button {
+    min-width: 3rem;
+    padding: 0.55rem 0;
+}
+
+.talles a {
+    margin-left: 0.5rem;
+    color: var(--color_texto_suave);
+}
+
+.cantidad {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.cantidad label {
+    margin-right: 0.25rem;
+}
+
+.cantidad button {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+.cantidad input {
+    height: 2.5rem;
+    font: inherit;
+    border: 1px solid var(--color_borde);
+    border-radius: var(--radio);
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.cantidad input::-webkit-inner-spin-button,
+.cantidad input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* El color verde de este botón viene del style="" del HTML */
+.detalles_producto > button {
+    width: 100%;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    border-radius: var(--radio);
+    transition: filter 0.2s;
+}
+
+.detalles_producto > button:hover {
+    filter: brightness(1.2);
+}
+
+/* --- producto.html: recomendados --- */
+.seccion_recomendados {
+    margin-top: 3rem;
+}
+
+.seccion_recomendados > h2 {
+    margin-bottom: 1.5rem;
+}
+
+.seccion_recomendados > div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+
+/* ==========================================================================
+   6. RESPONSIVIDAD (mobile first: la base es para celulares)
+   ========================================================================== */
+
+/* Tablet chica: 600px en adelante */
+@media (min-width: 600px) {
+    .menu {
+        gap: 0.25rem 2.5rem;
+    }
+
+    .seccion_productos,
+    .seccion_hombre,
+    .seccion_mujer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .seccion_coleccion > img {
+        height: 340px;
+    }
+}
+
+/* Tablet: 768px en adelante */
+@media (min-width: 768px) {
+    .tarjeta_producto:has(.galeria_producto) {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+    }
+
+    .seccion_recomendados > div {
+        max-width: 720px;
+    }
+}
+
+/* Escritorio: 1024px en adelante */
+@media (min-width: 1024px) {
+    .seccion_productos,
+    .seccion_hombre,
+    .seccion_mujer {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .seccion_coleccion > img {
+        height: 440px;
+    }
+
+    .contenido_principal {
+        padding-block: 2.5rem 4rem;
+    }
+}
+
+/* Respeta a quienes desactivan las animaciones */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
