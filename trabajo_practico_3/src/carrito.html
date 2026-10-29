@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élite - Carrito</title>
+    <link rel="stylesheet" href="./recursos/estilo/style.css">
+    <link rel="icon" href="./recursos/imagenes/logo/elite_icono.png">
+</head>
+<body>
+    <header class="encabezado_principal">
+        <nav class="menu">
+            <a href="index.html">
+                <img src="./recursos/imagenes/logo/elite_logo.png" alt="Logo Élite" width="50px">
+            </a>
+            <a href="index.html">Inicio</a>
+            <a href="catalogo_hombre.html">Hombre</a>
+            <a href="catalogo_mujer.html">Mujer</a>
+            <a href="carrito.html">Carrito</a>
+        </nav>
+        <hr>
+    </header>
+
+    <main class="contenido_principal">
+        <p><small>INICIO > HOMBRE > REMERAS</small></p>
+
+        <section class="seccion_productos">
+            <article class="tarjeta_producto">
+                <!-- GALERÍA DE IMÁGENES DEL PRODUCTO -->
+                <div class="galeria_producto">
+                    <img src="./recursos/imagenes/productos/remera_oversize_principal.jpg" alt="Remera Oversize Elevate" width="300px">
+                    <div>
+                        <img src="./recursos/imagenes/productos/vista_miniatura_1.jpg" alt="Vista miniatura 1" width="70px">
+                        <img src="./recursos/imagenes/productos/vista_miniatura_2.jpg" alt="Vista miniatura 2" width="70px">
+                    </div>
+                </div>
+
+                <!-- DETALLES Y OPCIONES DEL PRODUCTO -->
+                <div class="detalles_producto">
+                    <h1>REMERA OVERSIZE 'ELEVATE'</h1>
+                    <p><small>(Blanco)</small></p>
+                    <h2>$24.99</h2>
+
+                    <h3>DESCRIPCIÓN</h3>
+                    <p>Remera oversize confeccionada en algodón premium. Corte amplio, tela suave y cómoda para uso diario.</p>
+
+                    <!-- SELECCIÓN DE TALLE -->
+                    <div class="talles">
+                        <p><strong>TALLE:</strong></p>
+                        <button type="button">S</button>
+                        <button type="button">M</button>
+                        <button type="button">L</button>
+                        <button type="button">XL</button>
+                        <a href="#"><small>(Guía de talles)</small></a>
+                    </div>
+
+                    <br>
+
+                    <!-- CANTIDAD Y BOTÓN DE COMPRA -->
+                    <div class="cantidad">
+                        <label for="cantidad_producto"><strong>CANTIDAD:</strong></label>
+                        <button type="button">-</button>
+                        <input type="number" id="cantidad_producto" name="cantidad" value="1" min="1" style="width: 40px; text-align: center;">
+                        <button type="button">+</button>
+                    </div>
+
+                    <div class="botones_carrito">
+                        <button class="boton_agregar">AGREGAR MAS</button>
+                        <button class="boton_pagar">PAGAR</button>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <!-- PRODUCTOS RECOMENDADOS -->
+        <section class="seccion_recomendados">
+            <h2>PRODUCTOS RECOMENDADOS</h2>
+            <div>
+                <article class="tarjeta_producto">
+                    <img src="./recursos/imagenes/productos/recomendacion_1.jpg" alt="Pantalón Jean" width="150px">
+                </article>
+                <article class="tarjeta_producto">
+                    <img src="./recursos/imagenes/productos/recomendacion_2.jpg" alt="Pantalón Negro" width="150px">
+                </article>
+                <article class="tarjeta_producto">
+                    <img src="./recursos/imagenes/productos/recomendacion_3.jpg" alt="Cinturón de Cuero" width="150px">
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <hr>
+    <footer class="pie_pagina">
+        <p>&copy; 2024 Élite Ropa. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

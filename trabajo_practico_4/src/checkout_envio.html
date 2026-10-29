@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élite - Datos de envío</title>
+    <link rel="stylesheet" href="./recursos/estilo/style.css">
+    <link rel="icon" href="./recursos/imagenes/logo/elite_icono.png">
+    <script type="module" src="./recursos/js/paginas/checkout-envio.js"></script>
+</head>
+<body>
+    <header class="encabezado-principal">
+        <nav class="menu-principal" aria-label="Menú principal">
+            <a class="menu-principal__logo" href="index.html">
+                <img class="menu-principal__logo-imagen" src="./recursos/imagenes/logo/elite_logo.png" alt="Élite - Inicio">
+            </a>
+            <a class="menu-principal__enlace" href="index.html">Inicio</a>
+            <a class="menu-principal__enlace" href="catalogo_hombre.html">Hombre</a>
+            <a class="menu-principal__enlace" href="catalogo_mujer.html">Mujer</a>
+            <a class="menu-principal__enlace menu-principal__enlace--activo" aria-current="page" href="carrito.html">Carrito <span class="menu-principal__contador" data-carrito-contador hidden>0</span></a>
+        </nav>
+    </header>
+
+    <main class="contenido-principal">
+        <ol class="pasos-compra" aria-label="Pasos de la compra">
+            <li class="pasos-compra__paso pasos-compra__paso--activo" aria-current="step">Envío</li>
+            <li class="pasos-compra__paso">Pago</li>
+            <li class="pasos-compra__paso">Confirmación</li>
+        </ol>
+
+        <h1 class="titulo-pagina">DATOS DE ENVÍO</h1>
+
+        <p class="estado-carga" data-estado role="status">Cargando...</p>
+
+        <div class="checkout">
+            <form class="form-compra" id="form-envio">
+                <fieldset class="form-compra__bloque">
+                    <legend class="form-compra__leyenda">Datos personales</legend>
+                    <div class="form-compra__campo">
+                        <label class="form-compra__etiqueta" for="nombre">Nombre</label>
+                        <input class="form-compra__input" type="text" id="nombre" name="nombre" required autocomplete="given-name" aria-describedby="error-nombre">
+                        <p class="form-compra__error" id="error-nombre" hidden></p>
+                    </div>
+                    <div class="form-compra__campo">
+                        <label class="form-compra__etiqueta" for="apellido">Apellido</label>
+                        <input class="form-compra__input" type="text" id="apellido" name="apellido" required autocomplete="family-name" aria-describedby="error-apellido">
+                        <p class="form-compra__error" id="error-apellido" hidden></p>
+                    </div>
+                    <div class="form-compra__campo">
+                        <label class="form-compra__etiqueta" for="email">Correo electrónico</label>
+                        <input class="form-compra__input" type="email" id="email" name="email" required autocomplete="email" aria-describedby="error-email">
+                        <p class="form-compra__error" id="error-email" hidden></p>
+                    </div>
+                    <div class="form-compra__campo">
+                        <label class="form-compra__etiqueta" for="telefono">Teléfono</label>
+                        <input class="form-compra__input" type="tel" id="telefono" name="telefono" autocomplete="tel" aria-describedby="error-telefono">
+                        <p class="form-compra__error" id="error-telefono" hidden></p>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-compra__bloque">
+                    <legend class="form-compra__leyenda">Dirección de entrega</legend>
+                    <div class="form-compra__campo form-compra__campo--ancho">
+                        <label class="form-compra__etiqueta" for="direccion">Calle y número</label>
+                        <input class="form-compra__input" type="text" id="direccion" name="direccion" required autocomplete="street-address" aria-describedby="error-direccion">
+                        <p class="form-compra__error" id="error-direccion" hidden></p>
+                    </div>
+                    <div class="form-compra__campo">
+                        <label class="form-compra__etiqueta" for="ciudad">Ciudad</label>
+                        <input class="form-compra__input" type="text" id="ciudad" name="ciudad" required autocomplete="address-level2" aria-describedby="error-ciudad">
+                        <p class="form-compra__error" id="error-ciudad" hidden></p>
+                    </div>
+                    <div class="form-compra__campo">
+                        <label class="form-compra__etiqueta" for="provincia">Provincia</label>
+                        <select class="form-compra__input" id="provincia" name="provincia" required aria-describedby="error-provincia">
+                            <option value="">Elegí una provincia</option>
+                        </select>
+                        <p class="form-compra__error" id="error-provincia" hidden></p>
+                    </div>
+                    <div class="form-compra__campo">
+                        <label class="form-compra__etiqueta" for="codigo-postal">Código postal</label>
+                        <input class="form-compra__input" type="text" id="codigo-postal" name="codigo-postal" required autocomplete="postal-code" aria-describedby="error-codigo-postal">
+                        <p class="form-compra__error" id="error-codigo-postal" hidden></p>
+                    </div>
+                </fieldset>
+
+                <div class="form-compra__acciones">
+                    <a class="boton boton--contorno" href="carrito.html">Volver al carrito</a>
+                    <button class="boton boton--primario" type="submit">Continuar al pago</button>
+                </div>
+            </form>
+
+            <aside class="resumen-compra" aria-label="Resumen del pedido">
+            <h2 class="resumen-compra__titulo">Resumen del pedido</h2>
+            <ul class="resumen-compra__productos" id="resumen-productos"></ul>
+            <dl class="resumen-compra__lista" id="resumen-totales"></dl>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="pie-pagina">
+        <p class="pie-pagina__texto">&copy; 2026 Élite Ropa. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

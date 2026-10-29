@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élite - Catálogo Hombre</title>
+     <link rel="stylesheet" href="./recursos/estilo/style.css">
+    <link rel="icon" href="./recursos/imagenes/logo/clothes-label_icon-icons.com_68566.png">
+</head>
+<body>
+    <header class="encabezado_principal">
+        <nav class="menu">
+            <a href="index.html">
+                <img src="./recursos/imagenes/logo/elite_logo.png" alt="Logo Élite" width="50px">
+            </a>
+            <a href="index.html">Inicio</a>
+            <a href="catalogo-Hombre.html">Hombre</a>
+            <a href="catalogo-Mujer.html">Mujer</a>
+            <a href="producto.html">Carrito</a>
+        </nav>
+        <hr>
+    </header>
+
+    <main class="contenido_principal">
+        <!-- MIGA DE PAN -->
+        <p><small>INICIO > HOMBRE</small></p>
+
+        <h1>COLECCIÓN HOMBRE</h1>
+
+        <!-- FILTROS Y ORDENAMIENTO -->
+        <section class="formulario">
+            <form action="#" method="GET">
+                <label for="ordenar-hombre">ORDENAR POR:</label>
+                <select name="ordenar" id="ordenar-hombre">
+                    <option value="destacados">Destacados</option>
+                    <option value="nuevos">Nuevos</option>
+                    <option value="az">A - Z</option>
+                    <option value="za">Z - A</option>
+                </select>
+
+                <label for="precio-hombre">PRECIO:</label>
+                <select name="precio" id="precio-hombre">
+                    <option value="defecto">Precio</option>
+                    <option value="mayor">Mayor</option>
+                    <option value="menor">Menor</option>
+                </select>
+
+                <span>FILTRAR:</span>
+                <label><input type="checkbox" name="talla" checked> Talla</label>
+                <label><input type="checkbox" name="color"> Color</label>
+            </form>
+        </section>
+
+        <br>
+
+        <!-- GRILLA DE PRODUCTOS HOMBRE -->
+        <section class="seccion_hombre">
+            <article class="tarjeta_producto">
+                <img src="./recursos/imagenes/productos/producto4.jpg" alt="Chaqueta Aviador" width="200px">
+                <h3>Chaqueta Aviador</h3>
+                <p>Chaqueta de aviador color Marrón</p>
+                <p><strong>$89.19</strong></p>
+                <button type="button">Añadir al Carrito</button>
+            </article>
+
+            <article class="tarjeta_producto">
+                <img src="./recursos/imagenes/productos/producto5.jpg" alt="Camisa de Cuadros Verde" width="200px">
+                <h3>Camisa de Cuadros</h3>
+                <p>Camisa de cuadros color Verde</p>
+                <p><strong>$54.30</strong></p>
+                <button type="button">Añadir al Carrito</button>
+            </article>
+
+             <article class="tarjeta_producto">
+                <img src="./recursos/imagenes/productos/remera_oversize_principal.jpg" alt="Remera Oversize" width="200px">
+                <h3>Remera Oversize 'ELEVATE'</h3>
+                <p>Remera básica color blanco</p>
+                <p><strong>$24.99</strong></p>
+                <button type="button">Añadir al Carrito</button>
+            </article>
+        </section>
+    </main>
+
+    <hr>
+    <footer class="pie_pagina">
+        <p>&copy; 2024 Élite Ropa. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
