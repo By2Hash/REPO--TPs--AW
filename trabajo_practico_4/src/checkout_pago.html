@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élite - Pago</title>
+    <link rel="stylesheet" href="./recursos/estilo/style.css">
+    <link rel="icon" href="./recursos/imagenes/logo/elite_icono.png">
+    <script type="module" src="./recursos/js/checkout-pago.js"></script>
+</head>
+<body>
+    <header class="encabezado-principal">
+        <nav class="menu-principal" aria-label="Menú principal">
+            <a class="menu-principal__logo" href="index.html">
+                <img class="menu-principal__logo-imagen" src="./recursos/imagenes/logo/elite_logo.png" alt="Élite - Inicio">
+            </a>
+            <a class="menu-principal__enlace" href="index.html">Inicio</a>
+            <a class="menu-principal__enlace" href="catalogo_hombre.html">Hombre</a>
+            <a class="menu-principal__enlace" href="catalogo_mujer.html">Mujer</a>
+            <a class="menu-principal__enlace menu-principal__enlace--activo" aria-current="page" href="carrito.html">Carrito <span class="menu-principal__contador" data-carrito-contador hidden>0</span></a>
+        </nav>
+    </header>
+
+    <main class="contenido-principal">
+        <ol class="pasos-compra" aria-label="Pasos de la compra">
+            <li class="pasos-compra__paso pasos-compra__paso--completado">Envío</li>
+            <li class="pasos-compra__paso pasos-compra__paso--activo" aria-current="step">Pago</li>
+            <li class="pasos-compra__paso">Confirmación</li>
+        </ol>
+
+        <h1 class="titulo-pagina">MÉTODO DE PAGO</h1>
+
+        <p class="estado-carga" data-estado role="status">Cargando...</p>
+
+        <div class="checkout">
+            <form class="form-compra" id="form-pago">
+                <fieldset class="form-compra__bloque form-pago__metodos">
+                    <legend class="form-compra__leyenda">Elegí cómo pagar</legend>
+                    <label class="form-pago__opcion">
+                        <input class="form-pago__radio" type="radio" name="metodo" value="tarjeta" checked>
+                        Tarjeta de crédito o débito
+                    </label>
+                    <label class="form-pago__opcion">
+                        <input class="form-pago__radio" type="radio" name="metodo" value="transferencia">
+                        Transferencia bancaria
+                    </label>
+                    <label class="form-pago__opcion">
+                        <input class="form-pago__radio" type="radio" name="metodo" value="efectivo">
+                        Efectivo en punto de pago
+                    </label>
+                </fieldset>
+
+                <fieldset class="form-compra__bloque" id="datos-tarjeta">
+                    <legend class="form-compra__leyenda">Datos de la tarjeta</legend>
+                    <div class="form-compra__campo form-compra__campo--ancho">
+                        <label class="form-compra__etiqueta" for="titular">Nombre del titular</label>
+                        <input class="form-compra__input" type="text" id="titular" name="titular" autocomplete="cc-name" aria-describedby="error-titular">
+                        <p class="form-compra__error" id="error-titular" hidden></p>
+                    </div>
+                    <div class="form-compra__campo form-compra__campo--ancho">
+                        <label class="form-compra__etiqueta" for="numero-tarjeta">Número de tarjeta</label>
+                        <input class="form-compra__input" type="text" id="numero-tarjeta" name="numero-tarjeta" inputmode="numeric" maxlength="19" placeholder="0000 0000 0000 0000" autocomplete="cc-number" aria-describedby="error-numero-tarjeta">
+                        <p class="form-compra__error" id="error-numero-tarjeta" hidden></p>
+                    </div>
+                    <div class="form-compra__campo">
+                        <label class="form-compra__etiqueta" for="vencimiento">Vencimiento</label>
+                        <input class="form-compra__input" type="text" id="vencimiento" name="vencimiento" placeholder="MM/AA" maxlength="5" autocomplete="cc-exp" aria-describedby="error-vencimiento">
+                        <p class="form-compra__error" id="error-vencimiento" hidden></p>
+                    </div>
+                    <div class="form-compra__campo">
+                        <label class="form-compra__etiqueta" for="codigo-seguridad">Código de seguridad</label>
+                        <input class="form-compra__input" type="text" id="codigo-seguridad" name="codigo-seguridad" inputmode="numeric" maxlength="4" autocomplete="cc-csc" aria-describedby="error-codigo-seguridad">
+                        <p class="form-compra__error" id="error-codigo-seguridad" hidden></p>
+                    </div>
+                    <div class="form-compra__campo">
+                        <label class="form-compra__etiqueta" for="cuotas">Cuotas</label>
+                        <select class="form-compra__input" id="cuotas" name="cuotas"><option value="1">1 cuota</option><option value="3">3 cuotas</option><option value="6">6 cuotas</option></select>
+                    </div>
+                </fieldset>
+
+                <div class="form-compra__acciones">
+                    <a class="boton boton--contorno" href="checkout_envio.html">Volver a envío</a>
+                    <button class="boton boton--pagar" type="submit">Confirmar compra</button>
+                </div>
+            </form>
+
+            <aside class="resumen-compra" aria-label="Resumen del pedido">
+            <h2 class="resumen-compra__titulo">Resumen del pedido</h2>
+            <ul class="resumen-compra__productos" id="resumen-productos"></ul>
+            <dl class="resumen-compra__lista" id="resumen-totales"></dl>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="pie-pagina">
+        <p class="pie-pagina__texto">&copy; 2026 Élite Ropa. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élite - Carrito</title>
+    <link rel="stylesheet" href="./recursos/estilo/style.css">
+    <link rel="icon" href="./recursos/imagenes/logo/elite_icono.png">
+    <script type="module" src="./recursos/js/carrito.js"></script>
+</head>
+<body>
+    <header class="encabezado-principal">
+        <nav class="menu-principal" aria-label="Menú principal">
+            <a class="menu-principal__logo" href="index.html">
+                <img class="menu-principal__logo-imagen" src="./recursos/imagenes/logo/elite_logo.png" alt="Élite - Inicio">
+            </a>
+            <a class="menu-principal__enlace" href="index.html">Inicio</a>
+            <a class="menu-principal__enlace" href="catalogo_hombre.html">Hombre</a>
+            <a class="menu-principal__enlace" href="catalogo_mujer.html">Mujer</a>
+            <a class="menu-principal__enlace menu-principal__enlace--activo" aria-current="page" href="carrito.html">Carrito <span class="menu-principal__contador" data-carrito-contador hidden>0</span></a>
+        </nav>
+    </header>
+
+    <main class="contenido-principal">
+        <h1 class="titulo-pagina">TU CARRITO</h1>
+
+        <p class="estado-carga" data-estado role="status">Cargando carrito...</p>
+
+        <p class="carrito__vacio" id="carrito-vacio" hidden>
+            Tu carrito está vacío. <a href="catalogo_hombre.html">Mirá la colección</a> y agregá lo que te guste.
+        </p>
+
+        <div class="carrito">
+            <ul class="carrito__lista" id="carrito-lista"></ul>
+
+            <aside class="resumen-compra" id="carrito-resumen" aria-label="Resumen del carrito" hidden>
+                <h2 class="resumen-compra__titulo">Resumen</h2>
+                <dl class="resumen-compra__lista" id="carrito-totales"></dl>
+                <div class="resumen-compra__acciones">
+                    <a class="boton boton--primario boton--bloque" href="checkout_envio.html">Iniciar compra</a>
+                    <a class="boton boton--contorno" href="catalogo_hombre.html">Seguir comprando</a>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="pie-pagina">
+        <p class="pie-pagina__texto">&copy; 2026 Élite Ropa. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

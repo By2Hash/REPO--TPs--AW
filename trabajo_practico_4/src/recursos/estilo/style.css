@@ -1,0 +1,893 @@
+/* ==========================================================================
+   Élite - Hoja de estilos
+   Convención de nombres: BEM  ->  bloque__elemento--modificador
+   Orden: de lo más genérico a lo más específico
+     1. Base (etiquetas)
+     2. Layout (estructura común a todas las páginas)
+     3. Componentes reutilizables
+     4. Bloques específicos de cada vista
+     5. Responsive
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. BASE
+   ========================================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #18221b;
+    background: #f6f7f5;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+h1, h2, h3 {
+    margin: 0 0 0.5rem;
+    font-weight: 500;
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+:focus-visible {
+    outline: 3px solid #1e6fd9;
+    outline-offset: 2px;
+}
+
+
+/* ==========================================================================
+   2. LAYOUT (se repite en todas las páginas)
+   ========================================================================== */
+
+/* --- encabezado y menú principal --- */
+.encabezado-principal {
+    background: white;
+    border-bottom: 1px solid #d6ddd7;
+}
+
+.menu-principal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    padding: 1rem;
+}
+
+.menu-principal__logo {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-principal__logo-imagen {
+    height: 56px;
+    width: auto;
+}
+
+.menu-principal__enlace {
+    padding: 0.4rem 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 8px;
+}
+
+.menu-principal__enlace:hover {
+    background: #e4ebe4;
+}
+
+.menu-principal__enlace--activo {
+    background: #e4ebe4;
+    color: #1f4025;
+    border-color: #2e5d34;
+}
+
+.menu-principal__contador {
+    display: inline-grid;
+    place-items: center;
+    min-width: 1.4rem;
+    height: 1.4rem;
+    margin-left: 0.25rem;
+    padding: 0 0.3rem;
+    font-size: 0.8rem;
+    color: white;
+    background: #2e5d34;
+    border-radius: 999px;
+}
+
+/* --- contenido principal --- */
+.contenido-principal {
+    flex: 1;
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem 0 3rem;
+}
+
+/* --- pie de página --- */
+.pie-pagina {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: white;
+    background: #1f4025;
+}
+
+.pie-pagina__texto {
+    margin: 0;
+}
+
+
+/* ==========================================================================
+   3. COMPONENTES REUTILIZABLES
+   ========================================================================== */
+
+/* --- mensaje de estado (cargando / error al leer el JSON) --- */
+.estado-carga {
+    padding: 1rem;
+    color: #5f6b63;
+    background: #e4ebe4;
+    border-radius: 8px;
+}
+
+.estado-carga--error {
+    color: #7a1b15;
+    background: #f8e1df;
+}
+
+/* --- migas de pan --- */
+.migas {
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    color: #5f6b63;
+}
+
+.migas__enlace {
+    text-decoration: none;
+}
+
+.migas__enlace:hover {
+    text-decoration: underline;
+}
+
+/* --- títulos --- */
+.titulo-pagina {
+    margin: 0.25rem 0 1.5rem;
+    font-size: 2rem;
+}
+
+.titulo-seccion {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 1.4rem;
+    border-bottom: 1px solid #d6ddd7;
+}
+
+/* --- botón (base + variantes) --- */
+.boton {
+    display: inline-block;
+    padding: 0.6rem 1.25rem;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: #18221b;
+    background: white;
+    border: 1px solid #d6ddd7;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.boton:hover {
+    color: #2e5d34;
+    border-color: #2e5d34;
+}
+
+.boton--primario {
+    color: white;
+    background: #2e5d34;
+    border-color: #2e5d34;
+}
+
+.boton--primario:hover {
+    color: white;
+    background: #1f4025;
+}
+
+.boton--contorno {
+    color: #2e5d34;
+    background: none;
+    border-color: #2e5d34;
+}
+
+.boton--contorno:hover {
+    color: white;
+    background: #2e5d34;
+}
+
+.boton--pagar {
+    color: white;
+    background: #1e6fd9;
+    border-color: #1e6fd9;
+}
+
+.boton--pagar:hover {
+    color: white;
+    background: #1857ac;
+    border-color: #1857ac;
+}
+
+.boton--bloque {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+}
+
+.boton--exito {
+    color: white;
+    background: #2e5d34;
+    border-color: #2e5d34;
+}
+
+/* --- grilla de productos (index, catálogos y recomendados) --- */
+.grilla-productos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* --- tarjeta de producto --- */
+.tarjeta-producto {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1 1 250px;
+    max-width: 350px;
+}
+
+.tarjeta-producto__imagen {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+    background: #e4ebe4;
+    border-radius: 8px;
+}
+
+.tarjeta-producto__titulo {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.tarjeta-producto__enlace {
+    text-decoration: none;
+}
+
+.tarjeta-producto__enlace:hover {
+    text-decoration: underline;
+}
+
+.tarjeta-producto__descripcion {
+    margin: 0;
+    color: #5f6b63;
+}
+
+.tarjeta-producto__precio {
+    margin: 0 0 0.75rem;
+    font-weight: bold;
+}
+
+.tarjeta-producto__boton {
+    margin-top: auto;
+}
+
+.tarjeta-producto--compacta {
+    flex: 1 1 120px;
+    max-width: 200px;
+}
+
+/* --- selector de cantidad (producto y carrito) --- */
+.selector-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.selector-cantidad__etiqueta {
+    font-weight: bold;
+}
+
+.selector-cantidad__boton {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    font-size: 1.2rem;
+    background: white;
+    border: 1px solid #d6ddd7;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.selector-cantidad__boton:hover {
+    color: #2e5d34;
+    border-color: #2e5d34;
+}
+
+.selector-cantidad__input {
+    width: 3.5rem;
+    height: 2.5rem;
+    text-align: center;
+    border: 1px solid #d6ddd7;
+    border-radius: 8px;
+}
+
+/* --- formulario de compra (envío y pago) --- */
+.form-compra {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-compra__bloque {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1.25rem;
+    background: white;
+    border: 1px solid #d6ddd7;
+    border-radius: 8px;
+}
+
+.form-compra__leyenda {
+    padding: 0 0.5rem;
+    font-weight: bold;
+}
+
+.form-compra__campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.form-compra__campo--ancho {
+    grid-column: 1 / -1;
+}
+
+.form-compra__etiqueta {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.form-compra__input {
+    padding: 0.55rem 0.7rem;
+    background: white;
+    border: 1px solid #b9c4bb;
+    border-radius: 8px;
+}
+
+.form-compra__input--invalido {
+    border-color: #b3261e;
+}
+
+.form-compra__error {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #b3261e;
+}
+
+.form-compra__acciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* --- resumen de compra (carrito y checkout) --- */
+.resumen-compra {
+    align-self: start;
+    padding: 1.25rem;
+    background: white;
+    border: 1px solid #d6ddd7;
+    border-radius: 8px;
+}
+
+.resumen-compra__titulo {
+    font-size: 1.2rem;
+}
+
+.resumen-compra__productos {
+    margin: 0 0 1rem;
+    padding: 0;
+    list-style: none;
+    font-size: 0.95rem;
+    color: #5f6b63;
+}
+
+.resumen-compra__producto {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.3rem 0;
+}
+
+.resumen-compra__lista {
+    margin: 0 0 1.25rem;
+}
+
+.resumen-compra__fila {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    border-top: 1px solid #e4ebe4;
+}
+
+.resumen-compra__fila--total {
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-top: 2px solid #18221b;
+}
+
+.resumen-compra__termino,
+.resumen-compra__valor {
+    margin: 0;
+}
+
+.resumen-compra__acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+
+/* ==========================================================================
+   4. BLOQUES ESPECÍFICOS DE CADA VISTA
+   ========================================================================== */
+
+/* --- index: portada de la colección --- */
+.portada {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.portada__imagen {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+}
+
+.portada__titulo {
+    font-size: 2.5rem;
+}
+
+.portada__subtitulo {
+    font-size: 1.1rem;
+    color: #5f6b63;
+}
+
+/* --- catálogos: filtros y ordenamiento --- */
+.filtros-catalogo {
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+    border-top: 1px solid #d6ddd7;
+    border-bottom: 1px solid #d6ddd7;
+}
+
+.filtros-catalogo__form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+}
+
+.filtros-catalogo__etiqueta {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: bold;
+}
+
+.filtros-catalogo__select {
+    padding: 0.4rem 0.6rem;
+    background: white;
+    border: 1px solid #d6ddd7;
+    border-radius: 8px;
+}
+
+.filtros-catalogo__cantidad {
+    margin: 0.75rem 0 0;
+    font-size: 0.9rem;
+    color: #5f6b63;
+}
+
+/* --- vista de producto individual --- */
+.producto-detalle {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.producto-detalle__galeria,
+.producto-detalle__info {
+    flex: 1 1 300px;
+}
+
+.producto-detalle__imagen-principal {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.producto-detalle__miniaturas {
+    display: flex;
+    gap: 0.75rem;
+    margin: 0.75rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.producto-detalle__miniatura {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border: 1px solid #d6ddd7;
+    border-radius: 8px;
+}
+
+.producto-detalle__miniatura-boton {
+    padding: 0;
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+
+.producto-detalle__miniatura--activa {
+    border-color: #2e5d34;
+    border-width: 2px;
+}
+
+.producto-detalle__titulo {
+    font-size: 2rem;
+}
+
+.producto-detalle__color {
+    color: #5f6b63;
+}
+
+.producto-detalle__precio {
+    margin: 0.75rem 0 1.5rem;
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+.producto-detalle__subtitulo {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.producto-detalle__descripcion {
+    margin-bottom: 1.25rem;
+    color: #5f6b63;
+}
+
+.producto-detalle__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.producto-detalle__talles {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.producto-detalle__talles-leyenda {
+    width: 100%;
+    margin-bottom: 0.25rem;
+    padding: 0;
+    font-weight: bold;
+}
+
+.producto-detalle__talle {
+    position: relative;
+}
+
+.producto-detalle__talle-radio {
+    position: absolute;
+    opacity: 0;
+}
+
+.producto-detalle__talle-texto {
+    display: block;
+    min-width: 3rem;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    background: white;
+    border: 1px solid #d6ddd7;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.producto-detalle__talle-radio:checked + .producto-detalle__talle-texto {
+    color: white;
+    background: #2e5d34;
+    border-color: #2e5d34;
+}
+
+.producto-detalle__talle-radio:focus-visible + .producto-detalle__talle-texto {
+    outline: 3px solid #1e6fd9;
+    outline-offset: 2px;
+}
+
+/* --- productos recomendados --- */
+.recomendados {
+    margin-top: 3rem;
+}
+
+/* --- carrito --- */
+.carrito {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 2rem;
+}
+
+.carrito__vacio {
+    padding: 2rem 1rem;
+    text-align: center;
+    background: white;
+    border: 1px solid #d6ddd7;
+    border-radius: 8px;
+}
+
+.carrito__lista {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.carrito-item {
+    display: grid;
+    grid-template-columns: 90px 1fr auto auto;
+    align-items: center;
+    gap: 0.5rem 1.25rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #d6ddd7;
+}
+
+.carrito-item__imagen {
+    width: 90px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.carrito-item__nombre {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.carrito-item__detalle {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #5f6b63;
+}
+
+.carrito-item__subtotal {
+    margin: 0;
+    min-width: 5rem;
+    text-align: right;
+    font-weight: bold;
+}
+
+.carrito-item__quitar {
+    grid-column: 2 / -1;
+    justify-self: start;
+    padding: 0;
+    font-size: 0.9rem;
+    color: #5f6b63;
+    background: none;
+    border: 0;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.carrito-item__quitar:hover {
+    color: #b3261e;
+}
+
+/* --- checkout: indicador de pasos --- */
+.pasos-compra {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin: 0 0 2rem;
+    padding: 0;
+    list-style: none;
+    counter-reset: paso;
+}
+
+.pasos-compra__paso {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #5f6b63;
+    counter-increment: paso;
+}
+
+.pasos-compra__paso::before {
+    content: counter(paso);
+    display: grid;
+    place-items: center;
+    width: 1.8rem;
+    height: 1.8rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    background: white;
+    border: 1px solid #b9c4bb;
+    border-radius: 50%;
+}
+
+.pasos-compra__paso--completado::before {
+    content: "\2713";
+    color: white;
+    background: #2e5d34;
+    border-color: #2e5d34;
+}
+
+.pasos-compra__paso--activo {
+    font-weight: bold;
+    color: #18221b;
+}
+
+.pasos-compra__paso--activo::before {
+    color: white;
+    background: #18221b;
+    border-color: #18221b;
+}
+
+/* --- checkout: distribución formulario + resumen --- */
+.checkout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 2rem;
+}
+
+/* --- checkout: paso de pago --- */
+.form-pago__metodos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    grid-template-columns: none;
+}
+
+.form-pago__opcion {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d6ddd7;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.form-pago__opcion:has(input:checked) {
+    background: #e4ebe4;
+    border-color: #2e5d34;
+}
+
+.form-pago__radio {
+    accent-color: #2e5d34;
+}
+
+/* --- checkout: confirmación --- */
+.confirmacion {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.confirmacion__titulo {
+    font-size: 2rem;
+}
+
+.confirmacion__pedido {
+    display: inline-block;
+    margin: 0.5rem 0 1.5rem;
+    padding: 0.4rem 1rem;
+    font-weight: bold;
+    background: #e4ebe4;
+    border-radius: 8px;
+}
+
+.confirmacion__texto {
+    color: #5f6b63;
+}
+
+.confirmacion__acciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+
+/* ==========================================================================
+   5. RESPONSIVE
+   ========================================================================== */
+@media (max-width: 800px) {
+    .carrito,
+    .checkout {
+        grid-template-columns: 1fr;
+    }
+
+    .carrito-item {
+        grid-template-columns: 70px 1fr;
+    }
+
+    .carrito-item__imagen {
+        width: 70px;
+        height: 90px;
+    }
+
+    .carrito-item__quitar {
+        grid-column: 1 / -1;
+    }
+
+    .carrito-item__subtotal {
+        text-align: left;
+    }
+
+    .portada__imagen {
+        height: 220px;
+    }
+
+    .portada__titulo {
+        font-size: 1.8rem;
+    }
+}

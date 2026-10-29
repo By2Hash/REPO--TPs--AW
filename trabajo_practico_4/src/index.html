@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élite - Tienda de Ropa</title>
+    <link rel="stylesheet" href="./recursos/estilo/style.css">
+    <link rel="icon" href="./recursos/imagenes/logo/elite_icono.png">
+    <script type="module" src="./recursos/js/index.js"></script>
+</head>
+<body>
+    <header class="encabezado-principal">
+        <nav class="menu-principal" aria-label="Menú principal">
+            <a class="menu-principal__logo" href="index.html">
+                <img class="menu-principal__logo-imagen" src="./recursos/imagenes/logo/elite_logo.png" alt="Élite - Inicio">
+            </a>
+            <a class="menu-principal__enlace menu-principal__enlace--activo" aria-current="page" href="index.html">Inicio</a>
+            <a class="menu-principal__enlace" href="catalogo_hombre.html">Hombre</a>
+            <a class="menu-principal__enlace" href="catalogo_mujer.html">Mujer</a>
+            <a class="menu-principal__enlace" href="carrito.html">Carrito <span class="menu-principal__contador" data-carrito-contador hidden>0</span></a>
+        </nav>
+    </header>
+
+    <main class="contenido-principal">
+        <section class="portada">
+            <img class="portada__imagen" src="./recursos/imagenes/productos/coleccion_ropa.jpg" alt="Colección de ropa">
+            <h1 class="portada__titulo">NUEVA COLECCIÓN: OTOÑO/INVIERNO</h1>
+            <p class="portada__subtitulo">Explorá tu estilo único.</p>
+            <a class="boton boton--primario" href="catalogo_hombre.html">Ver colecciones</a>
+        </section>
+
+        <section>
+            <h2 class="titulo-seccion">PRODUCTOS DESTACADOS</h2>
+        <p class="estado-carga" data-estado role="status">Cargando productos...</p>
+            <ul class="grilla-productos" id="grilla-destacados"></ul>
+        </section>
+    </main>
+
+    <footer class="pie-pagina">
+        <p class="pie-pagina__texto">&copy; 2026 Élite Ropa. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
