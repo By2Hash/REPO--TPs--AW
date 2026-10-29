@@ -267,9 +267,11 @@ fieldset {
 }
 
 /* --- grilla de productos (index, catálogos y recomendados) --- */
+/* Grilla: todas las columnas miden lo mismo, así las tarjetas no cambian de
+   tamaño según cuántos productos tenga la última fila. */
 .grilla-productos {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     gap: 2rem 1.5rem;
     margin: 0;
     padding: 0;
@@ -281,8 +283,11 @@ fieldset {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    flex: 1 1 250px;
-    max-width: 350px;
+}
+
+.tarjeta-producto__enlace-imagen {
+    display: block;
+    line-height: 0;
 }
 
 .tarjeta-producto__imagen {
@@ -307,7 +312,15 @@ fieldset {
     text-decoration: underline;
 }
 
+/* La descripción ocupa siempre dos líneas (se recorta con puntos suspensivos si
+   es más larga) para que todas las tarjetas midan lo mismo; el texto completo
+   está en la página del producto. */
 .tarjeta-producto__descripcion {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 3.2em;
     margin: 0;
     color: #5f6b63;
 }
@@ -322,7 +335,6 @@ fieldset {
 }
 
 .tarjeta-producto--compacta {
-    flex: 1 1 120px;
     max-width: 200px;
 }
 

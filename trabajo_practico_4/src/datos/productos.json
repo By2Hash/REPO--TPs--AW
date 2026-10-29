@@ -1,6 +1,5 @@
 {
   "tienda": {
-    "moneda": "$",
     "envio": 5.0
   },
   "productos": [
@@ -188,6 +187,193 @@
       "miniaturas": [],
       "destacado": false,
       "fecha": "2026-08-30"
+    },
+    {
+      "id": "remera-basica-negra",
+      "nombre": "Remera Básica Negra",
+      "descripcion": "Remera básica de algodón color Negro, corte clásico.",
+      "precio": 19.99,
+      "genero": "hombre",
+      "categoria": "Remeras",
+      "color": "Negro",
+      "talles": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "imagen": "remera_negra.webp",
+      "miniaturas": [],
+      "destacado": false,
+      "fecha": "2026-10-20"
+    },
+    {
+      "id": "buzo-canguro-gris",
+      "nombre": "Buzo Canguro Gris",
+      "descripcion": "Buzo canguro con capucha y bolsillo, color Gris.",
+      "precio": 44.9,
+      "genero": "hombre",
+      "categoria": "Buzos",
+      "color": "Gris",
+      "talles": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "imagen": "buzo_canguro_gris.webp",
+      "miniaturas": [],
+      "destacado": true,
+      "fecha": "2026-10-22"
+    },
+    {
+      "id": "pantalon-cargo-negro",
+      "nombre": "Pantalón Cargo Negro",
+      "descripcion": "Pantalón cargo con bolsillos laterales color Negro.",
+      "precio": 64.5,
+      "genero": "hombre",
+      "categoria": "Pantalones",
+      "color": "Negro",
+      "talles": [
+        "38",
+        "40",
+        "42",
+        "44"
+      ],
+      "imagen": "pantalon_cargo_negro.jpg",
+      "miniaturas": [],
+      "destacado": false,
+      "fecha": "2026-10-12"
+    },
+    {
+      "id": "camisa-lino-blanca",
+      "nombre": "Camisa de Lino Blanca",
+      "descripcion": "Camisa de lino liviana color Blanco, ideal para verano.",
+      "precio": 52.0,
+      "genero": "hombre",
+      "categoria": "Camisas",
+      "color": "Blanco",
+      "talles": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "imagen": "camisa_lino_blanco.webp",
+      "miniaturas": [],
+      "destacado": false,
+      "fecha": "2026-10-25"
+    },
+    {
+      "id": "remera-crop-rosa",
+      "nombre": "Remera Crop Rosa",
+      "descripcion": "Remera corta de algodón color Rosa.",
+      "precio": 22.5,
+      "genero": "mujer",
+      "categoria": "Remeras",
+      "color": "Rosa",
+      "talles": [
+        "XS",
+        "S",
+        "M"
+      ],
+      "imagen": "remera_crop_negra.webp",
+      "miniaturas": [],
+      "destacado": false,
+      "fecha": "2026-10-21"
+    },
+    {
+      "id": "vestido-floral-azul",
+      "nombre": "Vestido Floral Azul",
+      "descripcion": "Vestido midi con estampado floral color Azul.",
+      "precio": 68.9,
+      "genero": "mujer",
+      "categoria": "Vestidos",
+      "color": "Azul",
+      "talles": [
+        "S",
+        "M",
+        "L"
+      ],
+      "imagen": "vestido_florar_azul.jpg",
+      "miniaturas": [],
+      "destacado": true,
+      "fecha": "2026-10-15"
+    },
+    {
+      "id": "jean-mom-celeste",
+      "nombre": "Jean Mom Celeste",
+      "descripcion": "Jean de tiro alto y corte mom color Celeste.",
+      "precio": 57.9,
+      "genero": "mujer",
+      "categoria": "Pantalones",
+      "color": "Celeste",
+      "talles": [
+        "36",
+        "38",
+        "40",
+        "42"
+      ],
+      "imagen": "Jean_Mom_Celeste.webp",
+      "miniaturas": [],
+      "destacado": false,
+      "fecha": "2026-10-08"
+    },
+    {
+      "id": "buzo-oversize-crema",
+      "nombre": "Buzo Oversize Crema",
+      "descripcion": "Buzo oversize de algodón suave color Crema.",
+      "precio": 46.0,
+      "genero": "mujer",
+      "categoria": "Buzos",
+      "color": "Crema",
+      "talles": [
+        "S",
+        "M",
+        "L"
+      ],
+      "imagen": "Buzo_Oversize_Crema.jpg",
+      "miniaturas": [],
+      "destacado": false,
+      "fecha": "2026-10-26"
+    },
+    {
+      "id": "campera-puffer-negra",
+      "nombre": "Campera Puffer Negra",
+      "descripcion": "Campera puffer abrigada color Negro.",
+      "precio": 94.99,
+      "genero": "mujer",
+      "categoria": "Camperas",
+      "color": "Negro",
+      "talles": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "imagen": "Campera_Puffer_Negra.jpg",
+      "miniaturas": [],
+      "destacado": false,
+      "fecha": "2026-10-24"
+    },
+    {
+      "id": "falda-plisada-verde",
+      "nombre": "Falda Plisada Verde",
+      "descripcion": "Falda plisada midi color Verde.",
+      "precio": 39.9,
+      "genero": "mujer",
+      "categoria": "Faldas",
+      "color": "Verde",
+      "talles": [
+        "S",
+        "M",
+        "L"
+      ],
+      "imagen": "Falda_Plisada_Verde.jpg",
+      "miniaturas": [],
+      "destacado": false,
+      "fecha": "2026-10-19"
     }
   ],
   "recomendados": [

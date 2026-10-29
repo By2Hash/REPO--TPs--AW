@@ -6,7 +6,7 @@
     <title>Élite - Catálogo Mujer</title>
     <link rel="stylesheet" href="./recursos/estilo/style.css">
     <link rel="icon" href="./recursos/imagenes/logo/elite_icono.png">
-    <script type="module" src="./recursos/js/catalogo.js"></script>
+    <script type="module" src="./recursos/js/paginas/catalogo.js"></script>
 </head>
 <body>
     <header class="encabezado-principal">
@@ -27,7 +27,15 @@
         <h1 class="titulo-pagina">COLECCIÓN MUJER</h1>
 
         <section class="filtros-catalogo" aria-label="Filtros y ordenamiento">
-            <form class="filtros-catalogo__form" id="filtros-catalogo">
+            <form class="filtros-catalogo__form" id="filtros-catalogo" role="search">
+                <label class="filtros-catalogo__etiqueta" for="buscar">Buscar:
+                    <input class="filtros-catalogo__select" type="search" name="buscar" id="buscar" placeholder="Nombre, color..." autocomplete="off">
+                </label>
+                <label class="filtros-catalogo__etiqueta" for="categoria">Categoría:
+                    <select class="filtros-catalogo__select" name="categoria" id="categoria">
+                        <option value="">Todas</option>
+                    </select>
+                </label>
                 <label class="filtros-catalogo__etiqueta" for="ordenar">Ordenar por:
                     <select class="filtros-catalogo__select" name="ordenar" id="ordenar">
                         <option value="destacados">Destacados</option>
